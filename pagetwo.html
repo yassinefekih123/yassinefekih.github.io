@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceres Exploration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+        }
+
+        /* Background Video */
+        .hero {
+            position: relative;
+            height: 100vh; /* Full height of viewport */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Hero Content */
+        .hero-content {
+            position: relative;
+            color: white;
+            z-index: 1;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            text-shadow: 0px 0px 20px cyan;
+            margin-bottom: 0.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Planet Information Section */
+        .info-section {
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .info-section img {
+            width: 40%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            animation: slideInLeft 1s ease;
+        }
+
+        .info-text {
+            width: 55%;
+            text-align: left;
+        }
+
+        .info-text h3 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #00b8d4;
+        }
+
+        .info-text p {
+            font-size: 1.2em;
+            line-height: 1.6em;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: black;
+            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer a {
+            color: #00b8d4;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay muted loop playsinline id="background-video">
+            <source src="background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h2>مرحباً بكم في سيريس</h2>
+            <p>اكتشف أسرار أول كوكب قزم تم اكتشافه على الإطلاق في نظامنا الشمسي.</p>
+        </div>
+    </section>
+
+    <!-- Planet Information Section -->
+    <section class="info-section">
+        <img src="qq.jpg" alt="Ceres Image">
+        <div class="info-text">
+            <h3>حول سيريس</h3>
+            <p>سيريس هو أكبر جسم في حزام الكويكبات بين المريخ والمشتري وأول كوكب قزم يتم اكتشافه. ويتكون من الصخور والجليد ويعتقد أنه يحتوي على مياه تحت سطحه.</p>
+            <p>اكتشفه جوزيبي بيازي عام 1801، وكان سيريس أول جسم يتم تصنيفه على أنه كويكب. وهو أيضًا الكوكب القزم الوحيد الموجود في النظام الشمسي الداخلي.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; استكشاف سيريس 2024. تعرف على المزيد على <a href="https://nasa.gov/ceres">NASA</a>.</p>
+    </footer>
+
+</body>
+</html>

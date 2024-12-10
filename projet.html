@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceres Exploration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loader"></div>
+            <h1>.. هل انت جاهز</h1>
+        </div>
+    </div>
+    <section class="hero">
+        <video autoplay muted loop playsinline id="background-video">
+            <source src="background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h2>مرحبا بكم في سيريس</h2>
+            <p>اكتشاف أول كوكب قزم في حزام الكويكبات.</p>
+            <button id="discover-btn">اكتشف</button>
+        </div>
+    </section>
+
+    <nav id="navbar">
+        <div class="logo">
+            <h1>سيريس</h1>
+        </div>
+    </nav>
+
+    <div class="scroll-target"></div>
+
+
+    <div id="video-section">
+        <video autoplay muted loop id="video-player">
+            <source src="planet.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="description">
+            <h2>سيريس: الكوكب القزم</h2>
+            <p>سيريس هو أكبر جسم في حزام الكويكبات بين المريخ والمشتري، ويصنف على أنه كوكب قزم وكويكب. اكتشفه جوزيبي بيازي عام 1801، ولا يزال أحد أكثر الأجسام إثارة للاهتمام في نظامنا الشمسي.</p>
+            <p>I لها تاريخ مثير للاهتمام، مع ميزات مثل نقطة مضيئة غامضة تشير إلى إمكانية وجود الماء تحت سطحها الجليدي. يعد استكشاف سيريس أمرًا حيويًا لفهم النظام الشمسي المبكر وإمكانية الحياة خارج الأرض..</p>
+        </div>
+    </div>
+    <div id="creative-gallery">
+        <div id="gallery-container">
+            <img class="gallery-image" src="ceres-planet-dwarf-planet-astronomical-object-wallpaper-preview.jpg" alt="Gallery Image 1">
+            <img class="gallery-image" src="Cérès.jpeg" alt="Gallery Image 2">
+            <img class="gallery-image" src="vzgs18iq.jpg" alt="Gallery Image 3">
+            <img class="gallery-image" src="aa.avif" alt="Gallery Image 4">
+            <img class="gallery-image" src="qq.jpg" alt="Gallery Image 5">
+        </div>
+        <div id="gallery-controls">
+            <button id="prev-btn">السابق</button>
+            <button id="next-btn">التالي</button>
+        </div>
+    </div>
+    <section class="info-section">
+        <div class="info-container">
+            <img src="cc.png" alt="Ceres Surface" class="info-image">
+            <div class="info-text">
+                <h2>عجائب سيريس</h2>
+                <p>
+                    يقدم سيريس، وهو أكبر جسم في حزام الكويكبات، رؤية فريدة للنظام الشمسي المبكر. وبفضل نقاطه المضيئة الغامضة ومحتواه من الجليد المائي، فقد أصبح موضوعًا لاستكشافات مكثفة.
+                </p>
+            </div>
+        </div>
+    </section>
+
+<button id="galaxy-button" class="galaxy-button">أدخل المجرة</button>
+
+
+<div id="video-container" class="video-container">
+    <video id="galaxy-video" autoplay muted>
+        <source src="Galaxy Motion Background Video [HD] ~ FREE.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+    
+
+
+<div id="info-page" class="info-page">
+    <div class="info-content">
+        <h1>مرحباً بكم في المجرة</h1>
+        <p>
+            هنا يمكنك استكشاف كل شيء عن المجرة وخصائصها.
+تعرف على النجوم والثقوب السوداء والسدم وغير ذلك الكثير.
+        </p>
+        <p>
+            ترقبوا اكتشافات مثيرة واستكشفوا عجائب الكون!
+        </p>
+    </div>
+</div>
+
+    <script>
+
+        document.getElementById('discover-btn').addEventListener('click', function() {
+
+            window.scrollTo({
+                top: document.querySelector('#video-section').offsetTop,
+                behavior: 'smooth'
+            });
+
+
+            setTimeout(function() {
+                document.getElementById('video-section').style.opacity = 1;
+            }, 500); 
+        });
+
+
+        window.addEventListener('scroll', function() {
+            let videoSection = document.getElementById('video-section');
+            let rect = videoSection.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                videoSection.style.opacity = 1;
+            }
+        });
+        const galleryImages = document.querySelectorAll('.gallery-image');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+
+let currentIndex = 0;
+
+function updateGallery() {
+    galleryImages.forEach((image, index) => {
+        
+        const offset = index - currentIndex;
+
+        if (offset === 0) {
+            
+            image.classList.add('center');
+        } else {
+            
+            image.classList.remove('center');
+        }
+
+        
+        image.style.transform = `translateX(${offset * 150}px)`; 
+    });
+}
+
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    updateGallery();
+});
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    updateGallery();
+});
+
+
+updateGallery();
+document.addEventListener("DOMContentLoaded", () => {
+    const loadingScreen = document.getElementById("loading-screen");
+
+
+    setTimeout(() => {
+        loadingScreen.style.display = "none";
+    }, 3000);
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const infoContainer = document.querySelector(".info-container");
+
+    const observer = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("appear"); 
+                    observer.unobserve(entry.target); 
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+
+    observer.observe(infoContainer);
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const galaxyButton = document.getElementById('galaxy-button');
+    const videoContainer = document.getElementById('video-container');
+    const galaxyVideo = document.getElementById('galaxy-video');
+
+    galaxyButton.addEventListener('click', () => {
+
+        videoContainer.style.display = 'flex';
+        videoContainer.style.visibility = 'visible';
+        videoContainer.style.opacity = '1'; 
+
+        galaxyVideo.play();
+
+        galaxyVideo.onended = () => {
+
+            videoContainer.style.transition = 'opacity 0.8s ease';
+            videoContainer.style.opacity = '0';
+
+
+            videoContainer.addEventListener('transitionend', () => {
+                window.location.href = "pagetwo.html";
+            }, { once: true }); 
+        };
+    });
+});
+
+
+
+    </script>
+
+</body>
+</html>
